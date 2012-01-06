@@ -506,8 +506,8 @@ $l_oServer->wsdl->addComplexType(
 	'all',
 	'',
 	array(
-		'project_id'	    =>	array( 'name' => 'projectId',		'type' => 'xsd:integer', 			'minOccurs' => '1' ),
-		'category_id'	    =>	array( 'name' => 'category_id',		'type' => 'tns:IntegerArray', 		'minOccurs' => '0' ),
+		'project_id'	    =>	array( 'name' => 'projectId',		'type' => 'tns:IntegerArray', 		'minOccurs' => '1' ),
+		'category_name'	    =>	array( 'name' => 'category_name',	'type' => 'tns:StringArray', 		'minOccurs' => '0' ),
 		'free_text'	        =>	array( 'name' => 'free_text',		'type' => 'xsd:string', 			'minOccurs' => '0' ),
     	'reporter_id'	    =>	array( 'name' => 'reporter_id',		'type' => 'tns:IntegerArray', 		'minOccurs' => '0' ),
 	    'handler_id'        =>	array( 'name' => 'handler_id',		'type' => 'tns:IntegerArray', 		'minOccurs' => '0' ),
@@ -516,14 +516,12 @@ $l_oServer->wsdl->addComplexType(
 		'priority_id'	    =>	array( 'name' => 'priority_id',		'type' => 'tns:IntegerArray', 		'minOccurs' => '0' ),
 		'severity_id'	    =>  array( 'name' => 'severity_id',		'type' => 'tns:IntegerArray', 		'minOccurs' => '0' ),
 		'resolution_id'	    =>  array( 'name' => 'resolution_id',	'type' => 'tns:IntegerArray', 		'minOccurs' => '0' ),
-	    'priority_id'	    =>  array( 'name' => 'priority_id',    	'type' => 'tns:IntegerArray', 		'minOccurs' => '0' ),
 		'view_state_id'	    =>  array( 'name' => 'view_state_id',   'type' => 'tns:IntegerArray', 		'minOccurs' => '0' ),
-	    'show_sticky'       =>  array( 'name' => 'show_sticky',   	'type' => 'xsd:boolean', 			'minOccurs' => '0' ),
-	    'product_version'   =>  array( 'name' => 'product_version', 'type' => 'tns:IntegerArray', 		'minOccurs' => '0' ),
+	    'sticky'       		=>  array( 'name' => 'sticky',   		'type' => 'xsd:boolean', 			'minOccurs' => '0' ),
+	    'product_version'   =>  array( 'name' => 'product_version', 'type' => 'tns:StringArray', 		'minOccurs' => '0' ),
 		'product_build'  	=>  array( 'name' => 'product_build',   'type' => 'xsd:string', 			'minOccurs' => '0' ),
-		'fixed_in_version'  =>  array( 'name' => 'fixed_in_version','type' => 'tns:IntegerArray', 		'minOccurs' => '0' ),
-	    'target_version'    =>  array( 'name' => 'target_version',	'type' => 'tns:IntegerArray', 		'minOccurs' => '0' ),
-		'not_assigned'      =>  array( 'name' => 'not_assigned',	'type' => 'xsd:boolean', 			'minOccurs' => '0' ),
+		'fixed_in_version'  =>  array( 'name' => 'fixed_in_version','type' => 'tns:StringArray', 		'minOccurs' => '0' ),
+	    'target_version'    =>  array( 'name' => 'target_version',	'type' => 'tns:StringArray', 		'minOccurs' => '0' ),
 		'platform'          =>  array( 'name' => 'platform',    	'type' => 'xsd:string', 			'minOccurs' => '0' ),	
 		'os' 		        =>  array( 'name' => 'os',    			'type' => 'xsd:string', 			'minOccurs' => '0' ),	
 		'os_version'        =>  array( 'name' => 'os_build',    	'type' => 'xsd:string', 			'minOccurs' => '0' ),
@@ -532,6 +530,7 @@ $l_oServer->wsdl->addComplexType(
 		'sort_field_name'   =>  array( 'name' => 'sort_field_name',	'type' => 'xsd:string', 			'minOccurs' => '0' ),
 		'sort_direction'    =>  array( 'name' => 'sort_direction',	'type' => 'tns:SortDirection', 		'minOccurs' => '0' ),
 		'interval'          =>  array( 'name' => 'interval',		'type' => 'tns:Interval', 			'minOccurs' => '0' ),
+		'page_number'   	=>  array( 'name' => 'page_number',		'type' => 'xsd:integer', 			'minOccurs' => '1' ),
 		'issues_per_page'   =>  array( 'name' => 'issues_per_page',	'type' => 'xsd:integer', 			'minOccurs' => '1' )
 	)
 );

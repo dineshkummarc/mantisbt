@@ -8,8 +8,24 @@
 
 $_SOAP_API_TO_FILTER_API_NAMES = array (
 	'project_id' => FILTER_PROPERTY_PROJECT_ID,
-    'category_id' => array ( FILTER_PROPERTY_CATEGORY_ID, 'category_get_name'),
-    'severity_id' => FILTER_PROPERTY_SEVERITY
+    'category_name' => FILTER_PROPERTY_CATEGORY_ID, # category_id actually searches by name
+    'free_text'		=> FILTER_PROPERTY_SEARCH,
+    'reporter_id' => FILTER_PROPERTY_REPORTER_ID,
+    'handler_id' => FILTER_PROPERTY_HANDLER_ID,
+    'note_user_id' => FILTER_PROPERTY_NOTE_USER_ID,
+	'status_id' => FILTER_PROPERTY_STATUS,
+	'priority_id' => FILTER_PROPERTY_PRIORITY,
+	'severity_id' => FILTER_PROPERTY_SEVERITY,
+	'resolution_id' => FILTER_PROPERTY_RESOLUTION,
+	'view_state_id' => FILTER_PROPERTY_VIEW_STATE,
+	'sticky' => FILTER_PROPERTY_STICKY,
+	'product_version' => FILTER_PROPERTY_VERSION,
+	'product_build' => FILTER_PROPERTY_BUILD,
+	'fixed_in_version' => FILTER_PROPERTY_FIXED_IN_VERSION,
+	'target_version' => FILTER_PROPERTY_TARGET_VERSION,
+	'platform' => FILTER_PROPERTY_PLATFORM,
+	'os' => FILTER_PROPERTY_OS,
+	'os_version' => FILTER_PROPERTY_OS_BUILD
 );
 
 
@@ -142,10 +158,7 @@ function mc_filter_search_issue_headers( $p_username, $p_password, $p_filter_sea
 		return mci_soap_fault_access_denied( $t_user_id );
 	}
 	
-	// we emulate the simple filter type, for now
-	// the main difficulty is in matching category ids to project ids, in case of multiple
-	// chosen projects
-	$t_filter = array( '_view_type' => 'simple');
+	$t_filter = array( '_view_type' => 'advanced');
 	
 	// TODO: filter public/private issues based on access
 	foreach ( $_SOAP_API_TO_FILTER_API_NAMES as $t_soap_name => $t_filter_name ) {
